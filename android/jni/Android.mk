@@ -7,7 +7,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE    := libwebsockets
 LOCAL_CFLAGS    := -DLWS_BUILTIN_GETIFADDRS
-LWS_LIB_PATH	:= ../../../shared/libwebsockets/lib
+LWS_LIB_PATH	:= ../../lib
 LOCAL_C_INCLUDES:= $(LOCAL_PATH)/$(LWS_LIB_PATH)
 LOCAL_SRC_FILES := \
 	$(LWS_LIB_PATH)/base64-decode.c \
@@ -21,9 +21,9 @@ LOCAL_SRC_FILES := \
 	$(LWS_LIB_PATH)/getifaddrs.c \
 	$(LWS_LIB_PATH)/handshake.c \
 	$(LWS_LIB_PATH)/libwebsockets.c \
-	$(LWS_LIB_PATH)/md5.c \
 	$(LWS_LIB_PATH)/output.c \
 	$(LWS_LIB_PATH)/parsers.c \
+	$(LWS_LIB_PATH)/lws-plat-android.c \
 	$(LWS_LIB_PATH)/sha-1.c
 
 include $(BUILD_STATIC_LIBRARY)

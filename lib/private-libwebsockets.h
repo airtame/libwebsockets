@@ -105,7 +105,9 @@
 #else
  #include <ifaddrs.h>
 #endif
+#ifndef __ANDROID__
 #include <sys/syslog.h>
+#endif
 #include <sys/un.h>
 #include <sys/socket.h>
 #include <netdb.h>
