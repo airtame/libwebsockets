@@ -14,6 +14,7 @@ LOCAL_SRC_FILES := \
 	$(LWS_LIB_PATH)/base64-decode.c \
 	$(LWS_LIB_PATH)/client.c \
 	$(LWS_LIB_PATH)/server.c \
+	$(LWS_LIB_PATH)/context.c \
 	$(LWS_LIB_PATH)/handshake.c \
 	$(LWS_LIB_PATH)/client-handshake.c \
 	$(LWS_LIB_PATH)/server-handshake.c \
