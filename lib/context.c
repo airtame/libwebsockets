@@ -25,6 +25,11 @@
 #define LWS_BUILD_HASH "unknown-build-hash"
 #endif
 
+#ifdef __ANDROID__
+#include <sys/types.h>
+#include <sys/resource.h>
+#endif
+
 static const char *library_version = LWS_LIBRARY_VERSION " " LWS_BUILD_HASH;
 
 /**
@@ -127,7 +132,14 @@ libwebsocket_create_context(struct lws_context_creation_info *info)
 	context->ka_probes = info->ka_probes;
 
 	/* to reduce this allocation, */
+#ifdef __ANDROID__
+	struct rlimit limit;
+	getrlimit(RLIMIT_NOFILE, &limit );
+	context->max_fds = limit.rlim_cur;
+#else
 	context->max_fds = getdtablesize();
+#endif
+
 	lwsl_notice(" static allocation: %u + (%u x %u fds) = %u bytes\n",
 		sizeof(struct libwebsocket_context),
 		sizeof(struct libwebsocket_pollfd) +
