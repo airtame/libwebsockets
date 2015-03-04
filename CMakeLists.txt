@@ -33,6 +33,8 @@ if(GIT_EXECUTABLE)
     message("Git commit hash: ${LWS_BUILD_HASH}")
 endif()
 
+option(ANDROID_BUILD "Build the library on Android" OFF)
+
 option(LWS_WITH_SSL "Include SSL support (default OpenSSL, CyaSSL if LWS_USE_CYASSL is set)" ON)
 option(LWS_SSL_CLIENT_USE_OS_CA_CERTS "SSL support should make use of OS installed CA root certs" ON)
 option(LWS_USE_EXTERNAL_ZLIB "Search the system for ZLib instead of using the included one (on Windows)" OFF)
@@ -303,6 +305,10 @@ endif()
 if (WIN32)
 	list(APPEND SOURCES
 		lib/lws-plat-win.c
+		)
+elseif(ANDROID_BUILD)
+	list(APPEND SOURCES
+		lib/lws-plat-android.c
 		)
 else()
 	list(APPEND SOURCES
