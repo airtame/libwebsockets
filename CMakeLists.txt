@@ -376,6 +376,10 @@ add_library(websockets STATIC
 			${HDR_PRIVATE}
 			${HDR_PUBLIC}
 			${SOURCES})
+add_library(websockets_obj OBJECT
+			${HDR_PRIVATE}
+			${HDR_PUBLIC}
+			${SOURCES})
 add_library(websockets_shared SHARED
 			${HDR_PRIVATE}
 			${HDR_PUBLIC}
