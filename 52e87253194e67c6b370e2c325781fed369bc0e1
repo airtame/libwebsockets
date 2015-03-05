@@ -1,0 +1,7 @@
+Code-Review+2: David Harboe <david@airtame.com>
+Verified+1: Vasile Popescu <vasile@airtame.com>
+Submitted-by: Vasile Popescu <vasile@airtame.com>
+Submitted-at: Thu, 05 Mar 2015 10:29:13 +0100
+Reviewed-on: https://gerrit.airtame.com:8443/1131
+Project: dongle/libwebsockets
+Branch: refs/heads/development
